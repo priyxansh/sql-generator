@@ -1,9 +1,9 @@
-import openAIClient from "./api";
+import openAIClient from "./api.js";
 
 const generate = async (queryDescription) => {
     const response = await openAIClient.createCompletion({
         model: "text-davinci-003",
-        prompt: `Convert the following natural language description into a SQL query: \n\n${queryDescription}.`,
+        prompt: `Convert the following natural language description into a sql query: \n\n${queryDescription}.`,
         max_tokens: 100,
         temperature: 0,
     });
