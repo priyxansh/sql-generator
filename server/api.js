@@ -1,21 +1,22 @@
-import { OpenAIApi, Configuration } from "openai";
-import dotenv from "dotenv";
+const dotenv = require("dotenv")
+const openai = require("openai")
+
 
 dotenv.config({
-    path: "/home/priyansh/Code/react/sql-generator/server/.env",
+    path: __dirname + "/.env",
 });
 
 const openaiApiKey = process.env.OPENAI_API_KEY;
 
-if (!openaiApiKey) {
+if (!openaiApiKey) {OpenAIApi
     console.error("OPENAI_API_KEY not set.");
     process.exit(1);
 }
 
-const configuration = new Configuration({
+const configuration = new openai.Configuration({
     apiKey: openaiApiKey,
 });
 
-const openai = new OpenAIApi(configuration);
+const openaiapi = new openai.OpenAIApi(configuration);
 
-export default openai;
+export default openaiapi;
