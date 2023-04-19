@@ -1,5 +1,9 @@
-const dotenv = require("dotenv")
-const openai = require("openai")
+import dotenv from "dotenv"
+import { OpenAIApi, Configuration } from "openai";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
 dotenv.config({
@@ -9,14 +13,14 @@ dotenv.config({
 const openaiApiKey = process.env.OPENAI_API_KEY;
 
 if (!openaiApiKey) {OpenAIApi
-    console.error("OPENAI_API_KEY not set.");
+    console.error("OPENAI_API_KEY is not set.");
     process.exit(1);
 }
 
-const configuration = new openai.Configuration({
+const configuration = new Configuration({
     apiKey: openaiApiKey,
 });
 
-const openaiapi = new openai.OpenAIApi(configuration);
+const openAIClient = new OpenAIApi(configuration);
 
-export default openaiapi;
+export default openAIClient;
