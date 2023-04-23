@@ -3,8 +3,8 @@ import "./QueryGenerator.css";
 
 export const QueryGenerator = () => {
     const [query, setQuery] = useState("");
-    const baseURL = process.env.VITE_BASE_URL;
-    const generateEndpoint = process.env.VITE_GENERATE_ENDPOINT;
+    const baseURL = import.meta.env.VITE_BASE_URL;
+    const generateEndpoint = import.meta.env.VITE_GENERATE_ENDPOINT;
     const generateQuery = async (queryDescription) => {
         const response = await fetch(`${baseURL}/${generateEndpoint}`, {
             headers: {
